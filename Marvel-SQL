@@ -1,0 +1,27 @@
+--highest grossing film
+
+SELECT  movie, category, worldwide_gross_m, year
+
+FROM `striped-fulcrum-418522.marvel_data.movie_data`
+
+ORDER BY worldwide_gross_m DESC
+
+--highest average grossing category
+
+SELECT category, AVG(worldwide_gross_m) AS avg_gross
+
+FROM `striped-fulcrum-418522.marvel_data.movie_data`
+
+GROUP BY category
+
+ORDER BY avg_gross DESC
+
+--worldwide gross by year 
+
+SELECT year, SUM(worldwide_gross_m) AS total_worldwide_gross_m
+
+FROM `striped-fulcrum-418522.marvel_data.movie_data`
+
+GROUP BY year
+
+ORDER BY year DESC
